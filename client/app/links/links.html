@@ -1,4 +1,21 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
-  <input ng-model=''/>
+  <!-- <input ng-model=''/> -->
+  <img src='/redirect_icon.png'/>
+  
+  <div class='link' ng-repeat="displayLink in data.links | filter: search | orderBy:'created_at'">
+    
+    <div class="img"><img src="../assets/redirect_icon.png"/></div>
+
+    <div class='visits'>
+      <span class='count'>{{displayLink.visits}}</span>Visits
+    </div>
+
+    <div class='title'>{{displayLink.title}}</div>
+
+    <div class='original'>{{displayLink.url}}</div>
+
+    <a href='{{displayLink.baseUrl}}/{{displayLink.code}}' target="_blank">{{displayLink.baseUrl}}/{{displayLink.code}}</a>
+
+  </div>
 </div>

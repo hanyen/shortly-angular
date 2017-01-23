@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- start Angular -->
 <html ng-app='shortly'>
   <head>
     <meta charset="utf-8" />
@@ -6,10 +7,20 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
   <body>
-    <h1>Shortly</h1>
-
+    <h1><a href="/#/" class="logo">Shortly</a></h1>
+    
+    <div class='navigation'>
+      <ul>
+        <li><a href='#/links' class='index'>All Links</a></li>
+        <li><a href='#/shorten' class='create'>Shorten</a></li>
+        <li><a href='#/logout' class='logout'>Logout</a></li>
+      </ul>
+    </div>
+    
+    <div id='container'></div>
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
+      <div ng-view></div>
+    </div>
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
@@ -19,5 +30,27 @@
     <script src="app/shorten/shorten.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
+
+<!-- Navigation
+
+      Enable navigation between the links view and shorten view
+      Enable authentication for the links view and shorten view
+      Default to links view if an unknown client-side route is attempted
+
+    Validations
+
+      Validate the shorten links form before it submits to the server.
+      Validate sign up and sign in forms before it submits to the server.
+      Show errors when forms are invalid
+
+    Sorting and filtering
+
+      Display the links on the listing page sorted by visit count
+      Add a live-search box that displays only the links that match the search criteria
+
+    Tests
+
+      Write at least 5 new tests that will assure future users that your application is working as expected -->
+
   </body>
 </html>

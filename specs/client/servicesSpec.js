@@ -17,19 +17,19 @@ describe('Services', function () {
       Links = _Links_;
     }));
 
-    xit('should exist', function () {
+    it('should exist', function () {
       expect(Links).to.exist;
     });
 
-    xit('should have a method `getAll`', function () {
+    it('should have a method `getAll`', function () {
       expect(Links.getAll).to.be.a('function');
     });
 
-    xit('should have a method `addOne`', function () {
+    it('should have a method `addOne`', function () {
       expect(Links.addOne).to.be.a('function');
     });
 
-    xit('should get all links with `getAll`', function () {
+    it('should get all links with `getAll`', function () {
       var mockResponse = [
         { title: 'Twitter',
           url: 'https://twitter.com' },

@@ -1,35 +1,40 @@
 angular.module('shortly.services', [])
 
+// create Links factory function
 .factory('Links', function ($http) {
-  // Your code here
-
+  // declare Links.getAll factory function
   var getAll = function() {
+    // do an asynch $http request to Node
+    // pasing GET method and the node endpoint
     return $http({
       method: 'GET',
       url: '/api/links'
     })
     .then(function(resp) {
-      return resp.data;
+      //return all the links from database
+      return resp.data; 
     });
   };
 
+  // declare Links.addOne[link] factory function
   var addOne = function(link) {
-    
+    // do and return an asynch $http request to Node
+    // pasing POST method and the node endpoint
     return $http({
       method: 'POST',
-      url: '/api/links',
+      url: '/api/links', 
       data: link
-    })
-    .then(function(resp) {
-      console.log('resp-addOne', resp);
-      return resp;
     });
   };
+
+  // this is like Node's JS Pattern export
   return {
     getAll: getAll,
     addOne: addOne
   };
 })
+
+// create Auth factory function
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
